@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LingoSphere - Language Learning Platform
 
 A modern, gamified language learning platform built with React, TypeScript, and AWS services.
@@ -101,3 +102,6 @@ src/
 ## License
 
 This project is licensed under the MIT License.
+=======
+# LingoSphere
+>>>>>>> 16f30ccaf5055a6ea0ef865ebd71886070d157af
