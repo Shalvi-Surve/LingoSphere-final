@@ -1,0 +1,476 @@
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// LingoSphere Design System - Modern Language Learning Platform
+// All colors MUST be HSL. Purple-teal theme with gamification elements.
+
+
+@layer base {
+  :root {
+    // Core Background & Foreground  
+    --background: 250 100% 98%;
+    --foreground: 260 15% 15%;
+
+    // Card System  
+    --card: 0 0% 100%;
+    --card-foreground: 260 15% 15%;
+
+    // Popover System  
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 15% 15%;
+
+    // Primary - Rich Purple  
+    --primary: 270 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 270 60% 65%;
+    --primary-dark: 270 80% 45%;
+
+    // Secondary - Vibrant Teal  
+    --secondary: 180 65% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 180 55% 60%;
+    --secondary-dark: 180 75% 40%;
+
+    // Success - Learning Green  
+    --success: 140 70% 50%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 140 60% 60%;
+
+    // Warning - XP Gold  
+    --warning: 45 95% 55%;
+    --warning-foreground: 45 95% 15%;
+
+    // Error - Challenge Red  
+    --error: 350 75% 55%;
+    --error-foreground: 0 0% 100%;
+
+    // Muted Elements  
+    --muted: 250 20% 95%;
+    --muted-foreground: 260 10% 50%;
+
+    // Accent - Highlight Purple  
+    --accent: 280 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    // Destructive  
+    --destructive: 350 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    // Borders & Inputs  
+    --border: 250 30% 88%;
+    --input: 250 30% 92%;
+    --ring: 270 70% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    // Gradients - LingoSphere Magic  
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)) 0%, hsl(var(--success-light)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    
+    // Shadows - Depth & Gaming Feel  
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-button: 0 4px 12px -2px hsl(var(--primary) / 0.2);
+    --shadow-float: 0 8px 32px -8px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 20px hsl(var(--accent) / 0.3);
+    
+    // Animations  
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    // Dark mode color adjustments  
+    --background: 260 25% 8%;
+    --foreground: 250 50% 95%;
+    --card: 260 20% 12%;
+    --card-foreground: 250 50% 95%;
+    --popover: 260 20% 12%;
+    --popover-foreground: 250 50% 95%;
+    --primary: 270 80% 65%;
+    --primary-foreground: 260 25% 8%;
+    --secondary: 180 70% 55%;
+    --secondary-foreground: 260 25% 8%;
+    --muted: 260 15% 15%;
+    --muted-foreground: 250 20% 70%;
+    --accent: 280 90% 70%;
+    --accent-foreground: 260 25% 8%;
+    --border: 260 20% 20%;
+    --input: 260 20% 18%;
+    --ring: 270 80% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-card);
+  }
+}
+
+// LingoSphere Gaming Components  
+@layer components {
+  .lingo-card {
+    @apply bg-card border border-border rounded-2xl p-6;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  
+  .lingo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
+  }
+  
+  .lingo-button-hero {
+    @apply px-8 py-4 rounded-2xl font-semibold text-lg;
+    background: var(--gradient-hero);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-button);
+    transition: var(--transition-bounce);
+  }
+  
+  .lingo-button-hero:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-float);
+  }
+  
+  .lingo-progress-bar {
+    @apply w-full h-3 bg-muted rounded-full overflow-hidden;
+  }
+  
+  .lingo-progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+    background: var(--gradient-success);
+  }
+  
+  .lingo-xp-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+    background: var(--gradient-secondary);
+    color: hsl(var(--secondary-foreground));
+    box-shadow: var(--shadow-button);
+  }
+  
+  .lingo-floating-chat {
+    @apply fixed bottom-6 right-6 z-50;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  // Mobile-first responsive improvements  
+  @media (max-width: 768px) {
+    .lingo-floating-chat {
+      @apply bottom-4 right-4;
+    }
+  }
+  
+  .lingo-course-card {
+    @apply relative overflow-hidden transition-all duration-300;
+    background: var(--gradient-card);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .lingo-course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-float);
+  }
+  
+  .lingo-lesson-choice {
+    @apply p-4 rounded-xl transition-all duration-200 cursor-pointer border-2;
+    border-color: hsl(var(--border));
+  }
+  
+  .lingo-lesson-choice:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.05);
+  }
+  
+  .lingo-lesson-choice.correct {
+    background: hsl(var(--success) / 0.1);
+    border-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+  }
+  
+  .lingo-lesson-choice.incorrect {
+    background: hsl(var(--error) / 0.1);
+    border-color: hsl(var(--error));
+    color: hsl(var(--error-foreground));
+  }
+
+  // Enhanced animations and transitions  
+  .lingo-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .lingo-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .lingo-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.9); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  // Mobile-first responsive utilities  
+  .lingo-mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .lingo-mobile-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  .lingo-mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  // Smooth scroll behavior  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  // Focus states for accessibility  
+  .lingo-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+}
+*/
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LingoSphere Design System - Modern Premium Language Learning Platform */
+
+@layer base {
+  :root {
+    /* Core Background & Foreground */
+    --background: 250 100% 98%;
+    --foreground: 260 15% 15%;
+
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 260 15% 15%;
+
+    /* Primary - Rich Purple */
+    --primary: 270 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 270 60% 65%;
+    --primary-dark: 270 80% 45%;
+
+    /* Secondary - Vibrant Teal */
+    --secondary: 180 65% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Success - Learning Green */
+    --success: 140 70% 50%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - XP Gold */
+    --warning: 45 95% 55%;
+    --warning-foreground: 45 95% 15%;
+
+    /* Error - Challenge Red */
+    --error: 350 75% 55%;
+    --error-foreground: 0 0% 100%;
+
+    /* Muted Elements */
+    --muted: 250 20% 95%;
+    --muted-foreground: 260 10% 50%;
+
+    /* Accent - Highlight Purple */
+    --accent: 280 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Gradients - LingoSphere Magic */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-float: 0 8px 32px -8px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 25px hsl(var(--accent) / 0.25);
+  }
+
+  .dark {
+    --background: 260 25% 8%;
+    --foreground: 250 50% 95%;
+    --card: 260 20% 12%;
+    --card-foreground: 250 50% 95%;
+    --primary: 270 80% 65%;
+    --secondary: 180 70% 55%;
+    --muted: 260 15% 15%;
+    --muted-foreground: 250 20% 70%;
+    --accent: 280 90% 70%;
+    --border: 260 20% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-card);
+    transition: background 1s ease;
+  }
+}
+
+/* ===================== COMPONENTS ===================== */
+@layer components {
+  .lingo-card {
+    @apply bg-card border border-border rounded-2xl p-6 transition-transform;
+    box-shadow: var(--shadow-card);
+  }
+
+  .lingo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-float);
+  }
+
+  .lingo-button-hero {
+    @apply px-8 py-4 rounded-2xl font-semibold text-lg;
+    background: var(--gradient-hero);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .lingo-button-hero:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
+  }
+
+  /* Progress bar */
+  .lingo-progress-bar {
+    @apply w-full h-3 bg-muted rounded-full overflow-hidden;
+  }
+  .lingo-progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+    background: var(--gradient-primary);
+  }
+
+  /* XP badge */
+  .lingo-xp-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+    background: var(--gradient-secondary);
+    color: hsl(var(--secondary-foreground));
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Lesson choices */
+  .lingo-lesson-choice {
+    @apply p-4 rounded-xl border-2 cursor-pointer transition-all duration-200;
+    border-color: hsl(var(--border));
+  }
+  .lingo-lesson-choice:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.05);
+  }
+  .lingo-lesson-choice.correct {
+    background: hsl(var(--success) / 0.1);
+    border-color: hsl(var(--success));
+  }
+  .lingo-lesson-choice.incorrect {
+    background: hsl(var(--error) / 0.1);
+    border-color: hsl(var(--error));
+  }
+
+  /* ===================== ANIMATIONS ===================== */
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .lingo-fade-in { animation: fadeIn 0.8s ease-in-out; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .lingo-slide-up { animation: slideUp 0.8s ease-out; }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .lingo-scale-in { animation: scaleIn 0.5s ease-out; }
+}
